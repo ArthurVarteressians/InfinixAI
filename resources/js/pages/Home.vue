@@ -4,6 +4,10 @@ import infinixlogo from '/public/logo.png';
 import AppMainheader from './AppMainheader.vue';
 import Hyperspeed from '../../../src/blocks/Backgrounds/Hyperspeed/Hyperspeed.vue';
 
+
+
+
+
 // Hyperspeed configuration with brand colors and slower default speed
 const hyperspeedOptions = {
   distortion: 'turbulentDistortion' as const,
@@ -63,25 +67,35 @@ const hyperspeedOptions = {
       <!-- Main content -->
       <main class="flex items-center justify-center min-h-screen px-6">
         <div class="text-center text-white max-w-4xl mx-auto pointer-events-auto">
-          <h1
-            class="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent">
-            Welcome to Infinix AI
-          </h1>
-          <p class="text-xl md:text-2xl mb-8 opacity-90 text-orange-200">
-            Experience the future with our innovative solutions
-          </p>
 
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link :href="route('clientRegistration')"
-              class="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 font-semibold text-lg min-w-[160px]">
-            Get Started
-            </Link>
-          </div>
+          <transition appear enter-active-class="transition-all duration-1000 ease-out"
+            enter-from-class="opacity-0 blur-sm scale-110" enter-to-class="opacity-100 blur-none scale-100">
+            <h1
+              class="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent"
+              style="text-shadow: 0 2px 4px rgba(251, 146, 60, 0.3);">
+              Welcome to Infinix AI
+            </h1>
+          </transition>
 
-          <!-- Instruction text -->
-          <!-- <p class="mt-8 text-sm opacity-60 text-orange-300">
-            Click & hold on the background to see the real magic of hyperspeed!
-          </p> -->
+
+          <!-- Animated Subheading -->
+          <transition appear enter-active-class="transition-all duration-1000 ease-out delay-300"
+            enter-from-class="opacity-0 translate-y-8" enter-to-class="opacity-100 translate-y-0">
+            <p class="text-xl md:text-2xl mb-8 opacity-90 text-orange-200">
+              Experience the future with our innovative solutions
+            </p>
+          </transition>
+
+          <!-- Animated Button -->
+          <transition appear enter-active-class="transition-all duration-1000 ease-out delay-500"
+            enter-from-class="opacity-0 scale-90" enter-to-class="opacity-100 scale-100">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link :href="route('clientRegistration')"
+                class="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 font-semibold text-lg min-w-[160px]">
+              Get Started
+              </Link>
+            </div>
+          </transition>
         </div>
       </main>
     </div>
