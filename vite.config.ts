@@ -8,7 +8,9 @@ export default defineConfig({
         laravel({
             input: ['resources/js/app.ts'],
             ssr: 'resources/js/ssr.ts',
+            
             refresh: true,
+            
         }),
         tailwindcss(),
         vue({
@@ -16,6 +18,7 @@ export default defineConfig({
                 transformAssetUrls: {
                     base: null,
                     includeAbsolute: false,
+                    
                 },
             },
         }),
