@@ -714,7 +714,7 @@ const sideSticksVertex = `
     float height = aMetrics.y;
 
     transformed.xy *= vec2(width, height);
-    float time = mod(uTime * 60. * 2. + aOffset, uTravelLength);
+    float time = mod(uTime * 30. * 2. + aOffset, uTravelLength);
 
     transformed = (rotationY(3.14/2.) * vec4(transformed,1.)).xyz;
     transformed.z += - uTravelLength + time;
@@ -1121,7 +1121,7 @@ class App {
         const lerpPercentage = Math.exp(-(-60 * Math.log2(1 - 0.1)) * delta);
         this.speedUp += lerp(this.speedUp, this.speedUpTarget, lerpPercentage, 0.00001);
         this.timeOffset += this.speedUp * delta;
-        const time = this.clock.elapsedTime + this.timeOffset;
+const time = (this.clock.elapsedTime + this.timeOffset) * 0.3; // Slow down by 70%
 
         this.rightCarLights.update(time);
         this.leftCarLights.update(time);

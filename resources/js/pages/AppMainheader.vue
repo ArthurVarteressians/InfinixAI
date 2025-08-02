@@ -4,7 +4,7 @@ import infinixlogo from '/public/logo.png';
 </script>
 
 <template>
-  <header class="bg-white shadow-sm border-b">
+  <header class="shadow-sm">
     <div class="max-w-7xl mx-auto px-6 py-4">
       <div class="flex items-center justify-between">
         <!-- Logo -->
