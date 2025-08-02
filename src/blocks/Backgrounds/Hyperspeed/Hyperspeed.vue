@@ -74,8 +74,8 @@ const hyperspeedContainer = useTemplateRef<HTMLDivElement>('hyperspeedContainer'
 let appRef: App | null = null;
 
 const defaultOptions: HyperspeedOptions = {
-    onSpeedUp: () => {},
-    onSlowDown: () => {},
+    onSpeedUp: () => { },
+    onSlowDown: () => { },
     distortion: 'turbulentDistortion',
     length: 400,
     roadWidth: 10,
@@ -196,7 +196,7 @@ const distortions: Distortions = {
             const distortion = new THREE.Vector3(
                 Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x - Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
                 Math.sin(progress * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y -
-                    Math.sin(movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y,
+                Math.sin(movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y,
                 0,
             );
             const lookAtAmp = new THREE.Vector3(2, 0.4, 1);
@@ -1121,7 +1121,7 @@ class App {
         const lerpPercentage = Math.exp(-(-60 * Math.log2(1 - 0.1)) * delta);
         this.speedUp += lerp(this.speedUp, this.speedUpTarget, lerpPercentage, 0.00001);
         this.timeOffset += this.speedUp * delta;
-const time = (this.clock.elapsedTime + this.timeOffset) * 0.3; // Slow down by 70%
+        const time = (this.clock.elapsedTime + this.timeOffset) * 0.3; // Slow down by 70%
 
         this.rightCarLights.update(time);
         this.leftCarLights.update(time);
