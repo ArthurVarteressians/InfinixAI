@@ -13,10 +13,8 @@ defineProps<{
             <div class="flex flex-col gap-8">
                 <div class="flex flex-col items-center gap-4">
                     <Link :href="route('home')" class="flex flex-col items-center gap-2 font-medium">
-                        <div class="mb-1 flex h-9 w-9 items-center justify-center rounded-md">
-                        <img src="./../../../../public/logo.webp" alt="Logo" class="h-12">
-                        </div>
-                        <span class="sr-only">{{ title }}</span>
+                    <img src="/logo2.png" alt="Company Logo" class="h-30 w-auto">
+                    <span class="sr-only">{{ title }}</span>
                     </Link>
                     <div class="space-y-2 text-center">
                         <h1 class="text-xl font-medium">{{ title }}</h1>

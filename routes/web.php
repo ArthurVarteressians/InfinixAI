@@ -9,7 +9,7 @@ Route::get('dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    return Inertia::render('HomeMainSection');
 })->name('home');
 
 Route::get('clientLogin', function () {

@@ -36,7 +36,7 @@ const footerNavItems: NavItem[] = [
                 <SidebarMenuItem>
                     <SidebarMenuButton size="lg" as-child>
                         <Link :href="route('dashboard')">
-                        <img src="../../../public/logo.webp" alt="Logo" class="h-12">
+                        <img src="../../../public/logo2.png" alt="Logo" class="h-30 w-auto" />
                         </Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>

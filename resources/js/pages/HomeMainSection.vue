@@ -5,9 +5,6 @@ import AppMainheader from './AppMainheader.vue';
 import Hyperspeed from '../../../src/blocks/Backgrounds/Hyperspeed/Hyperspeed.vue';
 
 
-
-
-
 // Hyperspeed configuration with brand colors and slower default speed
 const hyperspeedOptions = {
   distortion: 'turbulentDistortion' as const,

@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
+import AppMainheader from '../AppMainheader.vue';
 
 const form = useForm({
     name: '',
@@ -23,6 +24,7 @@ const submit = () => {
 </script>
 
 <template>
+    <AppMainheader />
     <AuthBase title="Create an account" description="Enter your details below to create your account">
         <Head title="Register" />
 
