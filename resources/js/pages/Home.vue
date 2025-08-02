@@ -30,7 +30,7 @@ const hyperspeedOptions = {
   carWidthPercentage: [0.2, 0.4] as [number, number],
   carShiftX: [-0.4, 0.4] as [number, number],
   carFloorSeparation: [0, 0.5] as [number, number],
-  timeScale: 0.1,
+  timeScale: 0.05,
 
   colors: {
     roadColor: 0x080808,
