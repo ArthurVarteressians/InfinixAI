@@ -1,4 +1,5 @@
 <script setup>
+import AppFooter from './AppFooter.vue';
 import HomeMainSection from './HomeMainSection.vue';
 import HomeSecSection from './HomeSecSection.vue';
 </script>
@@ -7,5 +8,6 @@ import HomeSecSection from './HomeSecSection.vue';
   <div>
     <HomeMainSection />
     <HomeSecSection />
+    <!-- <AppFooter /> -->
   </div>
 </template>
