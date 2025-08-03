@@ -14,7 +14,7 @@ const submitForm = async () => {
     isSubmitting.value = true
     error.value = null
     
-    const response = await fetch('/api/demo-request', {
+    const response = await fetch('/demo-request', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
