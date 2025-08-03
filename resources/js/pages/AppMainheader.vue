@@ -4,7 +4,7 @@ import infinixlogo from '/public/logo.png';
 </script>
 
 <template>
-  <header class="shadow-sm bg-gradient-to-r from-orange-50 to-red-50">
+  <header class="shadow-sm border-b border-orange-800 ">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <div class="flex items-center justify-between">
         <!-- Logo with subtle animation -->
@@ -33,7 +33,7 @@ import infinixlogo from '/public/logo.png';
           >
             <Link 
               :href="route('clientLogin')" 
-              class="px-6 py-2.5 text-orange-600 font-medium rounded-lg border-2 border-orange-400 hover:bg-orange-50 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+              class="px-6 py-2.5 text-orange-400 font-medium rounded-lg border-2 border-orange-500 hover:bg-orange-500/10 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
             >
               Login
             </Link>
@@ -47,7 +47,7 @@ import infinixlogo from '/public/logo.png';
           >
             <Link 
               :href="route('clientRegistration')" 
-              class="px-6 py-2.5 font-medium text-white rounded-lg bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+              class="px-6 py-2.5 font-medium text-white rounded-lg bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               Register
             </Link>

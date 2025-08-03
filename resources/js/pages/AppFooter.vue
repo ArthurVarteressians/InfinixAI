@@ -1,8 +1,8 @@
 <template>
 
   <footer
-    class="bg-black border-t border-orange-500/20 justify-content-center text-center py-10 text-sm font-light tracking-wide text-orange-200">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    class="bg-black border-t border-orange-800 justify-content-center text-center pt-5 text-sm font-light tracking-wide text-orange-200">
+    <div class="max-w-7xl mx-auto py-5 grid grid-cols-1 md:grid-cols-3 gap-20">
       <!-- Branding -->
       <div class="my-[-20px]">
 
@@ -16,7 +16,7 @@
 
       <!-- Quick Links -->
       <div>
-        <h4 class="text-lg font-semibold text-orange-300 mb-3">Navigation</h4>
+        <h4 class="text-lg font-semibold bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500 bg-clip-text text-transparent mb-3">Navigation</h4>
         <ul class="space-y-2 text-sm">
           <li><a href="#" class="hover:text-orange-400">Home</a></li>
           <li><a class="hover:text-orange-400">Request Demo</a></li>
@@ -25,7 +25,7 @@
 
       <!-- Contact / Social -->
       <div>
-        <h4 class="text-lg font-semibold text-orange-300 mb-3">Connect</h4>
+        <h4 class="text-lg font-semibold bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500 bg-clip-text text-transparent mb-3">Connect</h4>
         <p class="text-sm mb-2">Email: <a href="mailto:hello@infinix.local"
             class="hover:text-orange-400">Arthurvarteressians.de</a></p>
         <p class="text-sm mb-2">Support: support@infinix.local</p>
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="border-t border-orange-800 text-center text-xs py-4 text-orange-600">
+    <div class=" border-t border-orange-500/20 text-center text-xs py-2 text-orange-600">
       &copy; {{ new Date().getFullYear() }} Infinix AI — All rights reserved.
     </div>
   </footer>

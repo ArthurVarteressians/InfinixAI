@@ -45,8 +45,8 @@ interface Slot {
 }
 
 const props = withDefaults(defineProps<CardSwapProps>(), {
-  width: 400,
-  height: 300,
+  width: 350,
+  height: 280,
   cardDistance: 60,
   verticalDistance: 50,
   delay: 5000,
@@ -168,8 +168,8 @@ const swap = () => {
 
   // Drop the front card
   tl.to(elFront, {
-    y: '+=310',
-    rotation: '+=4',
+    y: '+=260',
+    rotation: '+=10',
     duration: config.value.durDrop,
     ease: config.value.ease
   });

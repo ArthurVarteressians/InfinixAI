@@ -50,7 +50,7 @@ const hyperspeedOptions = {
 <template>
   <div class="relative bg-black">
     <!-- Hyperspeed Background - full screen and clickable -->
-    <div class="fixed inset-0 w-full h-full z-0">
+    <div class="fixed inset-0 w-full h-[94vh] z-0">
       <Hyperspeed :effectOptions="hyperspeedOptions" />
     </div>
 
