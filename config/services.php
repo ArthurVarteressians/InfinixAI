@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+
+    'formspree' => [
+    'endpoint' => env('FORMSPREE_ENDPOINT'),
+    'rate_limit' => env('FORMSPREE_RATE_LIMIT', 3), // Requests per minute
+],
+
 ];
