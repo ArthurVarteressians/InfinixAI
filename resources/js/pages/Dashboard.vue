@@ -221,3 +221,6 @@ const downloadFile = (path: string) => {
     window.open(`/storage/${path}`, '_blank');
 };
 </script>
+
+
+

@@ -17,8 +17,13 @@ defineProps<{
                     <span class="sr-only">{{ title }}</span>
                     </Link>
                     <div class="space-y-2 text-center">
-                        <h1 class="text-xl font-medium">{{ title }}</h1>
-                        <p class="text-center text-sm text-muted-foreground">{{ description }}</p>
+                        <h1
+                            class="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500 bg-clip-text text-transparent">
+                            {{ title }}
+                        </h1>
+                        <p class="text-orange-200 text-sm">
+                            {{ description }}
+                        </p>
                     </div>
                 </div>
                 <slot />
