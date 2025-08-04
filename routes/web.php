@@ -24,7 +24,9 @@ Route::get('clientRegistration', function () {
     return Inertia::render('auth/Register');
 })->name('clientRegistration');
 
-
+Route::get('/csrf-token', function () {
+    return response()->json(['csrf_token' => csrf_token()]);
+});
 
 Route::post('/upload-pdf', function (Request $request) {
     $request->validate(['pdf' => 'required|file|mimes:pdf|max:10240']);
