@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
@@ -28,6 +29,11 @@ Route::get('/csrf-token', function () {
     return response()->json(['csrf_token' => csrf_token()]);
 });
 
+Route::get('/chat', function () {
+    return Inertia::render('QuickChatPage');
+})->name('chat');
+
+
 Route::post('/upload-pdf', function (Request $request) {
     $request->validate(['pdf' => 'required|file|mimes:pdf|max:10240']);
 
@@ -50,6 +56,27 @@ Route::post('/upload-pdf', function (Request $request) {
         ], 500);
     }
 });
+
+
+
+
+
+
+Route::post('/proxy-ml-chat', function (Request $request) {
+    try {
+        $response = Http::post('http://localhost:5000/api/chat', [
+            'message' => $request->input('message')
+        ]);
+
+        return $response->json();
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => 'ML server unreachable',
+            'details' => $e->getMessage()
+        ], 500);
+    }
+});
+
 
 
 require __DIR__ . '/settings.php';

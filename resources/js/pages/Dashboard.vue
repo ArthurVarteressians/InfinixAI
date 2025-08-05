@@ -2,12 +2,11 @@
     <div class="bg-black">
         <!-- Header -->
         <div class="shadow-sm border-b border-orange-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex ">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex">
                 <a href="/">
-                    <img src="../../../public/logo.png" href="#" alt="InfinixAI Logo" class="h-16 mx-auto my-4">
+                    <img src="/logo.png" alt="InfinixAI Logo" class="h-16 mx-auto my-4">
                 </a>
-                <div class="flex items-center justify-end w-full">
-
+                <div class="flex items-center justify-end w-full space-x-4">
                     <span class="text-sm text-orange-300">{{ uploadHistory.length }} documents uploaded</span>
                     <button @click="logout"
                         class="px-4 py-2 text-orange-400 hover:bg-orange-500 hover:text-white rounded-lg transition-colors">
@@ -18,7 +17,7 @@
         </div>
 
         <!-- Main Content -->
-        <main class="max-w-7xl mx-auto h-[80vh] px-4 sm:px-6 lg:px-8 py-8">
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <!-- Hero Section -->
             <div class="text-center mb-12">
                 <h2
@@ -30,37 +29,205 @@
                 </p>
             </div>
 
-            <!-- Action Buttons -->
-            <div class="grid md:grid-cols-2 gap-6 mb-12">
-                <!-- Upload Documents -->
-                <button @click="showUploadModal = true"
-                    class="p-8  border border-orange-400/40 text-orange-100 rounded-xl shadow-sm  hover:border-orange-500 hover:shadow-lg transition-all duration-400 group">
-                    <div class="flex items-center justify-center mb-4">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-semibold text-orange-300 mb-2">Upload Documents</h3>
-                    <p class="text-orange-100">Add documents to your knowledge base</p>
-                </button>
+            <!-- AI Assistants Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-orange-300 mb-6 text-center">Choose Your AI Assistant</h3>
 
-                <!-- Chat with AI -->
-                <button @click="startChat"
-                    class="p-8  border border-orange-400/40 text-orange-100 rounded-xl shadow-sm  hover:border-orange-500 hover:shadow-lg transition-all duration-400 group">
-                    <div class="flex items-center justify-center mb-4">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <img src="../../../public/logo2.png" alt="InfinixAI Logo" class="h-12 mx-auto my-4">
 
+                <!-- Quick Actions -->
+                <div class="grid md:grid-cols-2 gap-6 mb-12">
+                    <!-- Upload Documents -->
+                    <button @click="showUploadModal = true"
+                        class="p-8 border border-orange-400/40 text-orange-100 rounded-xl shadow-sm hover:border-orange-500 hover:shadow-lg transition-all duration-400 group">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                            </div>
                         </div>
+                        <h3 class="text-lg font-semibold text-orange-300 mb-2">Upload Documents</h3>
+                        <p class="text-orange-100">Add documents to your knowledge base</p>
+                    </button>
+
+                    <!-- Quick Chat -->
+                    <button @click="startQuickChat"
+                        class="p-8 border border-orange-400/40 text-orange-100 rounded-xl shadow-sm hover:border-orange-500 hover:shadow-lg transition-all duration-400 group">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <img src="/logo2.png" alt="InfinixAI Logo" class="h-10">
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-orange-300 mb-2">Quick Chat</h3>
+                        <p class="text-orange-100">Ask any questions here</p>
+                    </button>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- PDF Document Assistant -->
+                    <button @click="startPDFChat"
+                        class="p-6 border border-orange-400/40 text-orange-100 rounded-xl shadow-sm hover:border-orange-500 hover:shadow-lg transition-all duration-400 group">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-semibold text-orange-300 mb-2">PDF Assistant</h4>
+                        <p class="text-orange-100 text-sm">Chat with your PDF documents</p>
+                    </button>
+
+                    <!-- Voice Assistant -->
+                    <button @click="startVoiceChat"
+                        class="p-6 border border-orange-400/40 text-orange-100 rounded-xl shadow-sm hover:border-orange-500 hover:shadow-lg transition-all duration-400 group">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-semibold text-orange-300 mb-2">Voice Assistant</h4>
+                        <p class="text-orange-100 text-sm">Speak and get AI responses</p>
+                    </button>
+
+                    <!-- Image Analysis Assistant -->
+                    <button @click="startImageChat"
+                        class="p-6 border border-orange-400/40 text-orange-100 rounded-xl shadow-sm hover:border-orange-500 hover:shadow-lg transition-all duration-400 group">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-semibold text-orange-300 mb-2">Image Assistant</h4>
+                        <p class="text-orange-100 text-sm">Analyze and discuss images</p>
+                    </button>
+
+                    <!-- Code Assistant -->
+                    <button @click="startCodeChat"
+                        class="p-6 border border-orange-400/40 text-orange-100 rounded-xl shadow-sm hover:border-orange-500 hover:shadow-lg transition-all duration-400 group">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-semibold text-orange-300 mb-2">Code Assistant</h4>
+                        <p class="text-orange-100 text-sm">Get help with programming</p>
+                    </button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!-- Assistant Selector Modal -->
+            <div v-if="showAssistantSelector"
+                class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+                <div class="bg-gray-900 rounded-2xl p-8 max-w-4xl w-full mx-4 relative border border-orange-400/40">
+                    <button @click="showAssistantSelector = false"
+                        class="absolute top-4 right-4 text-gray-400 hover:text-gray-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    <h3 class="text-2xl font-bold text-orange-300 mb-6 text-center">Select AI Assistant</h3>
+                    <p class="text-orange-100 mb-8 text-center">Choose the type of assistance you need</p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- PDF Assistant -->
+                        <button @click="selectAssistant('pdf')"
+                            class="p-6 bg-gray-800/50 border border-orange-400/30 rounded-xl hover:bg-gray-800/70 hover:border-orange-500 transition-all duration-300 group text-left">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-10 h-10 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-orange-300">PDF Document Assistant</h4>
+                            </div>
+                            <p class="text-orange-100 text-sm">Upload PDF documents and ask questions about their
+                                content. Perfect for research, document analysis, and extracting insights.</p>
+                        </button>
+
+                        <!-- Voice Assistant -->
+                        <button @click="selectAssistant('voice')"
+                            class="p-6 bg-gray-800/50 border border-orange-400/30 rounded-xl hover:bg-gray-800/70 hover:border-orange-500 transition-all duration-300 group text-left">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-10 h-10 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-orange-300">Voice Assistant</h4>
+                            </div>
+                            <p class="text-orange-100 text-sm">Speak naturally and get AI responses. Voice-to-text
+                                conversion with intelligent conversation capabilities.</p>
+                        </button>
+
+                        <!-- Image Assistant -->
+                        <button @click="selectAssistant('image')"
+                            class="p-6 bg-gray-800/50 border border-orange-400/30 rounded-xl hover:bg-gray-800/70 hover:border-orange-500 transition-all duration-300 group text-left">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-10 h-10 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-orange-300">Image Analysis Assistant</h4>
+                            </div>
+                            <p class="text-orange-100 text-sm">Upload images for AI analysis. Get descriptions, extract
+                                text, identify objects, and ask questions about visual content.</p>
+                        </button>
+
+                        <!-- Code Assistant -->
+                        <button @click="selectAssistant('code')"
+                            class="p-6 bg-gray-800/50 border border-orange-400/30 rounded-xl hover:bg-gray-800/70 hover:border-orange-500 transition-all duration-300 group text-left">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-10 h-10 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-orange-300">Code Assistant</h4>
+                            </div>
+                            <p class="text-orange-100 text-sm">Get help with programming tasks. Code review, debugging,
+                                optimization, and learning new technologies.</p>
+                        </button>
                     </div>
-                    <h3 class="text-lg font-semibold text-orange-300 mb-2">Chat with AI</h3>
-                    <p class="text-orange-100">Get insights from your documents</p>
-                </button>
+                </div>
             </div>
 
             <!-- Upload Modal -->
@@ -82,10 +249,10 @@
                                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900">Upload PDF Documents</h3>
+                        <h3 class="text-2xl font-bold text-gray-900">Upload Documents</h3>
                     </div>
 
-                    <p class="text-gray-600 mb-6">Upload your PDF documents to create your knowledge base</p>
+                    <p class="text-gray-600 mb-6">Upload your documents to create your knowledge base</p>
 
                     <!-- Upload Area -->
                     <div @dragover.prevent @drop.prevent="handleDrop"
@@ -97,7 +264,7 @@
                                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
                         </div>
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Drop your PDF here</h4>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Drop your documents here</h4>
                         <p class="text-gray-500 mb-4">or click to browse</p>
                         <button @click="triggerFileInput" :disabled="isUploading"
                             class="px-6 py-3 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
@@ -138,7 +305,7 @@
 
             <!-- Documents Section -->
             <div
-                class=" shadow-sm border border-orange-400/40 rounded-xl hover:border-orange-400 transition-all duration-500 group hover:shadow-sm p-8">
+                class="shadow-sm border border-orange-400/40 rounded-xl hover:border-orange-400 transition-all duration-500 group hover:shadow-sm p-8">
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
                         <div
@@ -159,14 +326,14 @@
                 </div>
 
                 <!-- Document List -->
-                <div v-if="uploadHistory.length > 0" class="space-y-3 ">
+                <div v-if="uploadHistory.length > 0" class="space-y-3">
                     <div v-for="doc in uploadHistory" :key="doc.path"
-                        class="flex items-center justify-between p-4 bg-gray-800/50 border  border-orange-400/30 rounded-xl hover:bg-gray-800/70 hover:border-orange-500 transition-all duration-400 group">
+                        class="flex items-center justify-between p-4 bg-gray-800/50 border border-orange-400/30 rounded-xl hover:bg-gray-800/70 hover:border-orange-500 transition-all duration-400 group">
                         <div class="flex items-center">
                             <div class="w-10 h-10 bg-red-900/50 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                        d="M7 21h10a2 2 0 01-2-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                 </svg>
                             </div>
                             <div>
@@ -198,7 +365,7 @@
                 </div>
 
                 <!-- Empty State -->
-                <div v-else class="text-center py-12 ">
+                <div v-else class="text-center py-12">
                     <div class="w-16 h-16 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -206,7 +373,7 @@
                         </svg>
                     </div>
                     <h4 class="text-lg font-medium text-orange-300 mb-2">No documents uploaded yet</h4>
-                    <p class="text-orange-100 mb-4">Upload your first PDF document to get started</p>
+                    <p class="text-orange-100 mb-4">Upload your first document to get started</p>
                     <button @click="showUploadModal = true"
                         class="px-6 py-3 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 text-white rounded-lg hover:shadow-lg transition-all">
                         Upload Document
@@ -214,17 +381,13 @@
                 </div>
             </div>
         </main>
-
-        <!-- Footer with logout -->
-
     </div>
     <AppFooter />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios, { type AxiosError, type AxiosResponse } from 'axios';
-import AppMainheader from './AppMainheader.vue';
+import axios from 'axios';
 import AppFooter from './AppFooter.vue';
 
 interface UploadResponse {
@@ -245,6 +408,7 @@ interface UploadHistoryItem {
 
 // State
 const showUploadModal = ref(false);
+const showAssistantSelector = ref(false);
 const fileInput = ref<HTMLInputElement | null>(null);
 const file = ref<File | null>(null);
 const isUploading = ref(false);
@@ -258,33 +422,7 @@ const uploadHistory = ref<UploadHistoryItem[]>([]);
 // Helper functions
 const getCsrfToken = (): string => {
     const meta = document.querySelector('meta[name="csrf-token"]');
-    const token = meta?.getAttribute('content') || '';
-
-    // If no token found, try to refresh it
-    if (!token) {
-        console.warn('CSRF token not found, attempting to refresh...');
-        refreshCsrfToken();
-    }
-
-    return token;
-};
-
-const refreshCsrfToken = async (): Promise<string> => {
-    try {
-        const response = await axios.get('/csrf-token');
-        const newToken = response.data.csrf_token;
-
-        // Update the meta tag
-        const meta = document.querySelector('meta[name="csrf-token"]');
-        if (meta) {
-            meta.setAttribute('content', newToken);
-        }
-
-        return newToken;
-    } catch (error) {
-        console.error('Failed to refresh CSRF token:', error);
-        return '';
-    }
+    return meta?.getAttribute('content') || '';
 };
 
 const formatFileSize = (bytes: number): string => {
@@ -326,7 +464,12 @@ const handleFileChange = (e: Event) => {
     resetMessages();
 };
 
+const startQuickChat = () => {
+    window.location.href = '/chat';
+};
+
 const handleDrop = (event: DragEvent) => {
+    event.preventDefault();
     const droppedFile = event.dataTransfer?.files[0];
     if (droppedFile && droppedFile.type === 'application/pdf') {
         file.value = droppedFile;
@@ -353,10 +496,12 @@ const uploadPdf = async () => {
     formData.append('pdf', file.value);
 
     try {
-        const startTime = Date.now();
-        let csrfToken = getCsrfToken();
+        const csrfToken = getCsrfToken();
+        if (!csrfToken) {
+            throw new Error('CSRF token not found');
+        }
 
-        const response: AxiosResponse<UploadResponse> = await axios.post('/upload-pdf', formData, {
+        const response = await axios.post('/upload-pdf', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'X-CSRF-TOKEN': csrfToken
@@ -367,23 +512,21 @@ const uploadPdf = async () => {
                         (progressEvent.loaded * 100) / progressEvent.total
                     );
                 }
-            },
-            timeout: 60000
+            }
         });
 
-        console.log(`Upload completed in ${Date.now() - startTime}ms`);
-
-        if (response.data.success) {
-            uploadMessage.value = response.data.message;
-            savedFilePath.value = response.data.original_name;
-            fileUrl.value = response.data.url || '';
+        const data = response.data as UploadResponse;
+        if (data.success) {
+            uploadMessage.value = data.message;
+            savedFilePath.value = data.original_name;
+            fileUrl.value = data.url || '';
 
             // Add to history
             uploadHistory.value.unshift({
-                name: response.data.original_name,
-                size: file.value.size,
+                name: data.original_name,
+                size: file.value!.size,
                 date: new Date(),
-                path: response.data.path || ''
+                path: data.path || ''
             });
 
             // Keep only last 10 uploads
@@ -397,85 +540,20 @@ const uploadPdf = async () => {
                 fileInput.value.value = '';
             }
         } else {
-            throw new Error(response.data.message || 'Upload failed');
+            throw new Error(data.message || 'Upload failed');
         }
     } catch (error: unknown) {
-        // Handle CSRF token mismatch specifically
-        if (axios.isAxiosError(error) && error.response?.status === 419) {
-            console.log('CSRF token mismatch, refreshing token and retrying...');
-            try {
-                const newToken = await refreshCsrfToken();
-                if (newToken) {
-                    // Retry the upload with new token
-                    const retryResponse: AxiosResponse<UploadResponse> = await axios.post('/upload-pdf', formData, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data',
-                            'X-CSRF-TOKEN': newToken
-                        },
-                        onUploadProgress: (progressEvent) => {
-                            if (progressEvent.total) {
-                                uploadProgress.value = Math.round(
-                                    (progressEvent.loaded * 100) / progressEvent.total
-                                );
-                            }
-                        },
-                        timeout: 60000
-                    });
-
-                    if (retryResponse.data.success) {
-                        uploadMessage.value = retryResponse.data.message;
-                        savedFilePath.value = retryResponse.data.original_name;
-                        fileUrl.value = retryResponse.data.url || '';
-
-                        // Add to history
-                        uploadHistory.value.unshift({
-                            name: retryResponse.data.original_name,
-                            size: file.value.size,
-                            date: new Date(),
-                            path: retryResponse.data.path || ''
-                        });
-
-                        // Keep only last 10 uploads
-                        if (uploadHistory.value.length > 10) {
-                            uploadHistory.value = uploadHistory.value.slice(0, 10);
-                        }
-
-                        // Reset file input
-                        file.value = null;
-                        if (fileInput.value) {
-                            fileInput.value.value = '';
-                        }
-                        return; // Success on retry
-                    }
-                }
-            } catch (retryError) {
-                console.error('Retry after CSRF refresh failed:', retryError);
-                uploadError.value = 'Session expired. Please refresh the page and try again.';
-                return;
-            }
+        if (axios.isAxiosError(error)) {
+            uploadError.value = error.response?.data?.message ||
+                error.message ||
+                'Network error occurred';
+        } else if (error instanceof Error) {
+            uploadError.value = error.message;
+        } else {
+            uploadError.value = 'An unknown error occurred';
         }
-
-        handleUploadError(error);
     } finally {
         isUploading.value = false;
-    }
-};
-
-const handleUploadError = (error: unknown) => {
-    if (axios.isAxiosError(error)) {
-        uploadError.value = error.response?.data?.message ||
-            error.message ||
-            'Network error occurred';
-
-        console.error('Upload failed:', {
-            status: error.response?.status,
-            data: error.response?.data,
-            config: error.config
-        });
-    } else if (error instanceof Error) {
-        uploadError.value = error.message;
-    } else {
-        uploadError.value = 'An unknown error occurred';
     }
 };
 
@@ -488,7 +566,7 @@ const removeDocument = (path: string) => {
 
 const downloadFile = (path: string) => {
     if (!path) return;
-    window.open(`/storage/${path}`, '_blank');
+    window.open(`/storage/pdfs/${path}`, '_blank');
 };
 
 // Modal management
@@ -501,16 +579,46 @@ const closeUploadModal = () => {
     }
 };
 
-// Navigation
-const startChat = () => {
+// Assistant functions
+const selectAssistant = (type: string) => {
+    showAssistantSelector.value = false;
+    switch (type) {
+        case 'pdf':
+            startPDFChat();
+            break;
+        case 'voice':
+            startVoiceChat();
+            break;
+        case 'image':
+            startImageChat();
+            break;
+        case 'code':
+            startCodeChat();
+            break;
+    }
+};
+
+const startPDFChat = () => {
     if (uploadHistory.value.length === 0) {
         alert('Please upload at least one document before starting a chat!');
         return;
     }
-    // Redirect to chat page or open chat interface
-    window.location.href = '/chat'; // Adjust this URL as needed
+    window.location.href = '/chat/pdf';
 };
 
+const startVoiceChat = () => {
+    window.location.href = '/chat/voice';
+};
+
+const startImageChat = () => {
+    window.location.href = '/chat/image';
+};
+
+const startCodeChat = () => {
+    window.location.href = '/chat/code';
+};
+
+// Navigation
 const logout = async () => {
     if (confirm('Are you sure you want to logout?')) {
         try {
@@ -519,11 +627,9 @@ const logout = async () => {
                     'X-CSRF-TOKEN': getCsrfToken()
                 }
             });
-            // Redirect to login page
             window.location.href = '/login';
         } catch (error) {
             console.error('Logout failed:', error);
-            // Force redirect even if logout request fails
             window.location.href = '/login';
         }
     }

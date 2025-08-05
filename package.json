@@ -29,9 +29,11 @@
         "@vitejs/plugin-vue": "^6.0.0",
         "@vueuse/core": "^12.8.2",
         "@vueuse/motion": "^3.0.3",
+        "body-parser": "^2.2.0",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "concurrently": "^9.0.1",
+        "express": "^5.1.0",
         "gsap": "^3.13.0",
         "laravel-vite-plugin": "^2.0.0",
         "lucide-vue-next": "^0.468.0",
@@ -51,5 +53,23 @@
         "@rollup/rollup-linux-x64-gnu": "4.9.5",
         "@tailwindcss/oxide-linux-x64-gnu": "^4.0.1",
         "lightningcss-linux-x64-gnu": "^1.29.1"
-    }
+    },
+    "name": "infinixai",
+    "version": "1.0.0",
+    "main": "eslint.config.js",
+    "directories": {
+        "test": "tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ArthurVarteressians/InfinixAI.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ArthurVarteressians/InfinixAI/issues"
+    },
+    "homepage": "https://github.com/ArthurVarteressians/InfinixAI#readme",
+    "description": ""
 }

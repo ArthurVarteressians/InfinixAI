@@ -17,7 +17,10 @@ class HandleInertiaRequests extends Middleware
      * @var string
      */
     protected $rootView = 'app';
-
+    
+    protected $except = [
+        '/proxy-ml-chat',
+    ];
     /**
      * Determines the current asset version.
      *
